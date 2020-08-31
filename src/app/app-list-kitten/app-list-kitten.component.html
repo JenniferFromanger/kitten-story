@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 class="text-center">Kittens collection</h2>
+      <div class="row">
+        <ul *ngFor="let kitten of kittens">
+          <div class="col">
+            <li class="card" style="width: 20rem">
+              <img
+                [src]="kitten.picture"
+                class="card-img-top"
+                [alt]="kitten.name"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Name : {{ kitten.name }}</h5>
+                <p class="card-text">Breed : {{ kitten.breed }}</p>
+                <p class="card-text">
+                  Date of birth : {{ kitten.date_of_birth }}
+                </p>
+                <button class="btn btn-primary">Adopt me</button>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <app-user-kitten class="col-sm-4"></app-user-kitten>
+  </div>
+</div>
