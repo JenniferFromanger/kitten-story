@@ -10,6 +10,7 @@
                 [src]="kitten.picture"
                 class="card-img-top"
                 [alt]="kitten.name"
+                style="height: 250px; object-fit: cover"
               />
               <div class="card-body">
                 <h5 class="card-title">Name : {{ kitten.name }}</h5>
@@ -17,7 +18,9 @@
                 <p class="card-text">
                   Date of birth : {{ kitten.date_of_birth }}
                 </p>
-                <button class="btn btn-primary">Adopt me</button>
+                <button class="btn btn-primary" (click)="onAdopt(kitten)">
+                  Adopt me
+                </button>
               </div>
             </li>
           </div>

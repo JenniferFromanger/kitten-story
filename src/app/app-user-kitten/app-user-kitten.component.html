@@ -1,1 +1,10 @@
-<p>app-user-kitten works!</p>
+<h2 class="text-center">Jennifer's kittens</h2>
+<ul *ngIf="myKittens">
+  <li *ngFor="let myKitten of myKittens">
+    <img
+      src="{{ myKitten.picture }}"
+      [alt]="myKitten.name"
+      style="height: 150px; width: 150px; object-fit: cover"
+    />
+  </li>
+</ul>

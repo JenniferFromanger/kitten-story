@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Kitten } from '../models/kitten.model';
+import { KittensService } from '../services/kittens.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-kitten',
@@ -6,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-user-kitten.component.scss'],
 })
 export class AppUserKittenComponent implements OnInit {
-  constructor() {}
+  @Input() kitten: Kitten;
 
-  ngOnInit(): void {}
+  myKittens: Kitten[];
+  constructor(private kittensService: KittensService) {}
+
+  ngOnInit() {
+    this.myKittens = this.kittensService.myKittens;
+  }
 }

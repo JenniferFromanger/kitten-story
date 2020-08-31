@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Kitten } from '../models/kitten.model';
 import { Subscription } from 'rxjs';
 import { KittensService } from '../services/kittens.service';
@@ -9,6 +9,7 @@ import { KittensService } from '../services/kittens.service';
   styleUrls: ['./app-list-kitten.component.scss'],
 })
 export class AppListKittenComponent implements OnInit, OnDestroy {
+  @Input() kitten: Kitten;
   kittens: Kitten[];
   kittensSubscription: Subscription;
 
@@ -25,5 +26,9 @@ export class AppListKittenComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.kittensSubscription.unsubscribe();
+  }
+
+  onAdopt(kitten: Kitten) {
+    this.kittensService.adoptKitten(kitten);
   }
 }
