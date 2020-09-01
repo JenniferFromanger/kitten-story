@@ -1,10 +1,21 @@
 <h2 class="text-center">Jennifer's kittens</h2>
-<ul *ngIf="myKittens">
-  <li *ngFor="let myKitten of myKittens">
-    <img
-      src="{{ myKitten.picture }}"
-      [alt]="myKitten.name"
-      style="height: 150px; width: 150px; object-fit: cover"
-    />
-  </li>
-</ul>
+<div *ngIf="myKittens" class="card" style="width: 200px; margin: auto">
+  <div *ngFor="let myKitten of myKittens">
+    <a
+      [title]="
+        'Name : ' +
+        myKitten.name +
+        ', Breed : ' +
+        myKitten.breed +
+        ', Date of birth : ' +
+        myKitten.date_of_birth
+      "
+    >
+      <img
+        src="{{ myKitten.picture }}"
+        [alt]="myKitten.name"
+        style="height: 200px; width: 200px; object-fit: cover"
+        class="card-img-center"
+    /></a>
+  </div>
+</div>

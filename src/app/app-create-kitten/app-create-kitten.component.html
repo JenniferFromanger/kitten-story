@@ -1,1 +1,51 @@
-<p>app-create-kitten works!</p>
+<div class="row" style="margin: auto">
+  <div class="col-sm-8 col-sm-offset-2" style="padding: auto; margin: auto">
+    <h1 class="text-center">Create a new Kitten</h1>
+    <form [formGroup]="kittenForm" (ngSubmit)="onSaveKitten()">
+      <div class="form-group">
+        <label for="name">Kitten's name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="breed">Kitten's breed</label>
+        <input
+          type="text"
+          class="form-control"
+          id="breed"
+          formControlName="breed"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Kitten's date of birth</label>
+        <input
+          type="text"
+          class="form-control"
+          id="date_of_birth"
+          formControlName="date_of_birth"
+        />
+      </div>
+      <div class="form-group">
+        <label for="picture">Kitten's picture</label>
+        <input
+          type="text"
+          class="form-control"
+          id="picture"
+          formControlName="picture"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn"
+        [ngStyle]="{ background: kittenForm.invalid ? 'red' : 'blue' }"
+        [disabled]="kittenForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

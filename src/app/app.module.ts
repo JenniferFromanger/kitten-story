@@ -7,11 +7,12 @@ import { AppListKittenComponent } from './app-list-kitten/app-list-kitten.compon
 import { AppUserKittenComponent } from './app-user-kitten/app-user-kitten.component';
 import { KittensService } from './services/kittens.service';
 import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
+  { path: 'create', component: AppCreateKittenComponent },
   { path: 'list', component: AppListKittenComponent },
   { path: '', component: AppListKittenComponent },
-  { path: 'create', component: AppCreateKittenComponent },
 ];
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ const appRoutes: Routes = [
     AppListKittenComponent,
     AppUserKittenComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   providers: [KittensService],
   bootstrap: [AppComponent],
 })
