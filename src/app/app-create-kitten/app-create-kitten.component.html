@@ -41,7 +41,10 @@
       <button
         type="submit"
         class="btn"
-        [ngStyle]="{ background: kittenForm.invalid ? 'red' : 'blue' }"
+        [ngClass]="{
+          'btn btn-primary': kittenForm.valid,
+          'btn btn-danger': kittenForm.invalid
+        }"
         [disabled]="kittenForm.invalid"
       >
         Submit
